@@ -3,5 +3,5 @@
  * @Description:     总体导出文件
  * @Author:          ray
  */
-import './getMap';
-import'./dataMixins';
+export * from './getMap';
+export * from './dataMixins';

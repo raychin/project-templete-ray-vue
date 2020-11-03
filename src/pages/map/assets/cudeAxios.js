@@ -2,23 +2,11 @@
 // 引入axios请求
 import axios from "axios";
 import Vue from "vue";
+import { blockUrl, blockUser, blockPassword } from "../config-map";
+import md5 from 'blueimp-md5';
 
 // 定义vm 等于 vue
 let vm = new Vue({});
-
-/**
- * @description: 获取token
- * @param {type}
- * @return:
- */
-function getToken() {
-    return axios({
-        method: "get",
-        url: vm.usedUrl() + "getCubeDataAccessToken"
-    }).then(res => {
-        return res;
-    });
-}
 
 /**
  * @description: 获取块数据请求之前的token
@@ -28,17 +16,17 @@ function getToken() {
 function getCubeToken() {
     let timestamp = new Date().getTime();
     let user = {
-        userName: "zzpt",
-        passWord: "geostar999"
+        userName: blockUser,
+        passWord: blockPassword
     };
     let params = {
         time: timestamp,
         user: user.userName,
-        secret: vm.md5(timestamp + user.passWord)
+        secret: md5(timestamp + user.passWord)
     };
     return axios({
         method: "get",
-        url: vm.cubeCommonUrl() + "/ksj_api/getToken",
+        url: blockUrl + "/ksj_api/getToken",
         params: params
     }).then(res => {
         return res;
@@ -78,9 +66,9 @@ async function fetchPost(url, params) {
         for (let i in params) {
             formData.append(i, params[i]);
         }
-        let token = await getToken();
+        let token = await getCubeToken();
         // 添加token
-        formData.append("token", token.data.data.data.token);
+        formData.append("token", token.data.data.token);
     } else {
         formData = params;
     }

@@ -5,21 +5,21 @@
 <template>
     <div class="layout">
         <div class="layout-map">
-            <base-map ref="map" @click="handleBaseLayerClick($event)">
-                <!-- <operate-layer ref="operateLayer"></operate-layer>
-                <build-layer ref="buildLayer" @click="handleBuildLayerClick($event)"></build-layer> -->
-            </base-map>
+            <map-layer ref="map" @click="handleBaseLayerClick($event)">
+                <operate-layer ref="operateLayer"></operate-layer>
+                <build-layer ref="buildLayer" @click="handleBuildLayerClick($event)"></build-layer>
+            </map-layer>
         </div>
     </div>
 </template>
 
 <script>
-import baseMap from "./components/baseMap.vue";
+import mapLayer from "./components/mapLayer.vue";
 import operateLayer from "./components/operateLayer.vue";
 import buildLayer from "./components/buildLayer.vue";
 import { Toast } from 'vant';
 export default {
-    name: "map-main",
+    name: "mapMain",
     data() {
         return {
             headOption: {
@@ -43,7 +43,7 @@ export default {
             hasMaskLayer: true
         };
     },
-    components: { baseMap, operateLayer, buildLayer },
+    components: { mapLayer, operateLayer, buildLayer },
     created() {
     },
     methods: {
@@ -60,27 +60,7 @@ export default {
             }
             const property = geos[0].properties;
 
-            /**
-             * 原逻辑跳转到新增楼栋列表
-             * 现修改为跳转到新增房屋界面
-             * modify by ray on 2020/03/06
-             */
-            // this.$router.push({
-            //     path: "/building",
-            //     query: {
-            //         houseid: property.areacode,
-            //         point: [property.lon, property.lat]
-            //     }
-            // });
-            this.$router.push({
-                path: "/house/houseRevise",
-                query: {
-                    houseid: property.areacode,
-                    pageType: "add",
-                    houseAddress: property.areaname,
-                    point: [property.lon, property.lat]
-                }
-            });
+            Toast.success(property);
         },
         /**
          * 地图点击事件
@@ -97,27 +77,7 @@ export default {
                 Toast.fail("该楼栋已采集");
                 return;
             }
-            /**
-             * 原逻辑跳转到新增楼栋列表
-             * 现修改为跳转到新增房屋界面
-             * modify by ray on 2020/03/06
-             */
-            // this.$router.push({
-            //     path: "/building",
-            //     query: {
-            //         houseid: property.areacode,
-            //         point: [property.lon, property.lat]
-            //     }
-            // });
-            this.$router.push({
-                path: "/house/houseRevise",
-                query: {
-                    houseid: property.areacode,
-                    pageType: "add",
-                    houseAddress: property.areaname,
-                    point: [property.lon, property.lat]
-                }
-            });
+            // Toast.success(property);
         },
     }
 };

@@ -6,7 +6,11 @@
 <script>
 import cubeAxios from "../assets/cudeAxios";
 import cubeApi from "../assets/cubeApi";
-import { getMap, dataMixins } from "../mixins/index";
+// import { getMap, dataMixins } from "../mixins/index";
+import { getMap } from '../mixins/getMap';
+import { dataMixins } from '../mixins/dataMixins';
+import { blockUrl } from "../config-map";
+
 // 绘制传入的多边形数据
 export default {
     name: "operateLayer",
@@ -22,7 +26,7 @@ export default {
             type: Object,
             default() {
                 return {
-                    'line-color': '#00ff00',
+                    'line-color': '#ffa500',
                     "line-width": 4
                 };
             }
@@ -40,8 +44,6 @@ export default {
     },
     mounted() {
         this.layer = this.initLayer();
-        // 设置默认地图到17级 add by ray on 2020/03/17
-        this.map.setZoom(17);
         // this.addLayerClick();
         this.clear();
         this.initOperate();
@@ -121,14 +123,14 @@ export default {
          * add by ray on 2020/03/12
          */
         async getOperateArea() {
-            const areaCode = this.$store.state.userInfo.user.administrativeDeptId ? this.$store.state.userInfo.user.administrativeDeptId : "4403";
-            // const areaCode = "440305001";
+            // const areaCode = this.$store.state.userInfo.user.administrativeDeptId ? this.$store.state.userInfo.user.administrativeDeptId : "4403";
+            const areaCode = "440305";
             // eslint-disable-next-line camelcase
             const { url, request_type } = cubeApi.getAreaInfoByAreaCode;
             try {
                 const {
                     data: { retCode, data }
-                } = await cubeAxios.Ajax(`${this.cubeCommonUrl()}${url}`, {
+                } = await cubeAxios.Ajax(`${blockUrl}${url}`, {
                     request_type,
                     paramCodeList: "KJ5002",
                     areaCode: areaCode
@@ -138,6 +140,7 @@ export default {
                     return data.list;
                 }
             } catch (e) {
+                console.log(e);
                 this.clear();
             }
         },

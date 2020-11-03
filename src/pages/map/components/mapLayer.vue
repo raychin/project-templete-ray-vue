@@ -14,7 +14,7 @@ import { mapBgUrl } from "../config-map";
 let popupDiv = null;
 // 地图底图组件
 export default {
-    name: "baseMap",
+    name: "mapLayer",
     props: {
         // 地图属性
         mapOptions: Object

@@ -6,7 +6,11 @@
 <script>
 import cubeAxios from "../assets/cudeAxios";
 import cubeApi from "../assets/cubeApi";
-import { getMap, dataMixins } from "../mixins/index";
+// import { getMap, dataMixins } from "../mixins/index";
+import { getMap } from '../mixins/getMap';
+import { dataMixins } from '../mixins/dataMixins';
+import { blockUrl } from "../config-map";
+
 // 绘制传入的多边形数据
 export default {
     name: "buildLayer",
@@ -16,6 +20,16 @@ export default {
         showMinZoom: {
             type: Number,
             default: 17
+        },
+        // 默认线形样式
+        defaultLineSymbol: {
+            type: Object,
+            default() {
+                return {
+                    'line-color': '#1E90FF',
+                    "line-width": 3
+                };
+            }
         },
         // 默认多边形样式
         defaultSymbol: {
@@ -27,7 +41,7 @@ export default {
                         "case",
                         ["has", "hasCollect"],
                         ["to-color", "rgb(176,196,222)"], // 采集后颜色
-                        ["to-color", "rgb(187,186,185)"] // 未采集颜色
+                        ["to-color", "rgb(135,206,250)"] // 未采集颜色
                     ],
                     "fill-opacity": 0.6
                 };
@@ -49,6 +63,13 @@ export default {
             this.map.addSource(`${layerId}Source`, {
                 type: "geojson",
                 data: { type: "FeatureCollection", features: [] }
+            });
+            this.map.addLayer({
+                id: `${layerId}-line`,
+                type: "line",
+                source: `${layerId}Source`,
+                layout: {},
+                paint: { ...this.defaultLineSymbol }
             });
             this.map.addLayer({
                 id: layerId,
@@ -76,11 +97,6 @@ export default {
                         const geometries = this.geojsonToGeo(data);
                         this.renderGeo(geometries, false);
                     }
-                    // const houses = await this.houseStatus(data);
-                    // if (houses && houses.length) {
-                    //     const geometries = this.geojsonToGeo(houses);
-                    //     this.renderGeo(geometries, false);
-                    // }
 
                 } else {
                     this.clear();
@@ -112,7 +128,7 @@ export default {
             try {
                 const {
                     data: { retCode, data }
-                } = await cubeAxios.Ajax(`${this.cubeCommonUrl()}${url}`, {
+                } = await cubeAxios.Ajax(`${blockUrl}${url}`, {
                     request_type,
                     paramCodeList: "KJ5003",
                     coordinates: JSON.stringify(bounds)
@@ -125,9 +141,9 @@ export default {
                     //     }
                     // }
                     // console.log(data.list);
-                    // return data.list;
-                    const houses = await this.houseStatus(data.list);
-                    return houses;
+                    return data.list;
+                    // const houses = await this.houseStatus(data.list);
+                    // return houses;
                 }
             } catch (e) {
                 this.clear();
