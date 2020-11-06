@@ -60,6 +60,9 @@ export default {
          */
         initLayer() {
             const layerId = "buildLayer";
+            if (this.map.getLayer(layerId)) {
+                return this.map.getLayer(layerId);
+            }
             this.map.addSource(`${layerId}Source`, {
                 type: "geojson",
                 data: { type: "FeatureCollection", features: [] }

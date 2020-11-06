@@ -1,7 +1,15 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-08 10:32:58
+ * @LastEditTime: 2020-11-06 18:13:57
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /project-templete-ray-vue/src/pages/home/home.vue
+-->
 <template>
     <div class="main" :title="'首页'">
         <div class="top-bar">
-            <div class="top-bar-title" @click="jump('./map')">测试</div>
+            <div class="top-bar-title" @click="jump('./map')">地图</div>
         </div>
     </div>
 </template>
@@ -75,9 +83,17 @@ export default {
         align-items: center;
 
         .top-bar-title {
+            margin: 10px;
             display: flex;
             align-items: center;
             text-align: center;
+            justify-content: center;
+            width: 100%;
+            padding: 10px;
+            background: #008000;
+            color: #ffffff;
+            font-size: 16px;
+            border-radius: 5px;
         }
     }
 }

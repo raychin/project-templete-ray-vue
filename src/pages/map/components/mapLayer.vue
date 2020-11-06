@@ -156,7 +156,7 @@ export default {
             // create the marker
             popupDiv = new window.GeoGlobe.Popup({closeOnClick: false})
                 .setLngLat(monument)
-                .setHTML('<div><div style="margin-right:.2rem;">' + content + '</div></div>')
+                .setHTML('<div><div style="margin-right:.2rem;background: #ffffff;">' + content + '</div></div>')
                 .addTo(this.mapProvider.map);
 
             // 获取关闭的点击事件

@@ -26,8 +26,8 @@ export default {
             type: Object,
             default() {
                 return {
-                    'line-color': '#ffa500',
-                    "line-width": 4
+                    'line-color': '#ff4500',
+                    "line-width": 3
                 };
             }
         },
@@ -56,6 +56,9 @@ export default {
          */
         initLayer() {
             const layerId = "operateLayer";
+            if (this.map.getLayer(layerId)) {
+                return this.map.getLayer(layerId);
+            }
             this.map.addSource(`${layerId}Source`, {
                 type: "geojson",
                 data: { type: "FeatureCollection", features: [] }
