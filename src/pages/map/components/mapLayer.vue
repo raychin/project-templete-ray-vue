@@ -119,20 +119,21 @@ export default {
                 if (features.length === 0) {
                     Toast.fail("超出操作范围");
                 } else {
-                    if (features.length === 1) {
-                        Toast.fail(features[0].layer.id === "buildLayer" ? "超出操作范围" : "请选择房屋");
-                    } else {
-                        for(var i = 0; i < features.length; i ++) {
-                            if (features[i].layer.id === "buildLayer") {
-                                console.log(features[i]);
-                                this.showPopup(
-                                    features[i].properties.lon,
-                                    features[i].properties.lat,
-                                    features[i].properties.areaname);
-                                this.$emit("click", features[i]);
-                                break;
-                            }
+                    let isBuilding = false;
+                    for(var i = 0; i < features.length; i ++) {
+                        if (features[i].layer.id === "buildLayer") {
+                            console.log(features[i]);
+                            this.showPopup(
+                                features[i].properties.lon,
+                                features[i].properties.lat,
+                                features[i].properties.areaname);
+                            isBuilding = true;
+                            this.$emit("click", features[i]);
+                            break;
                         }
+                    }
+                    if (!isBuilding) {
+                        Toast.fail("请选择房屋");
                     }
                 }
             });
@@ -154,7 +155,7 @@ export default {
             // el.id = 'marker';
 
             // create the marker
-            popupDiv = new window.GeoGlobe.Popup({closeOnClick: false})
+            popupDiv = new GeoGlobe.Popup({closeOnClick: false})
                 .setLngLat(monument)
                 .setHTML('<div><div style="margin-right:.2rem;background: #ffffff;">' + content + '</div></div>')
                 .addTo(this.mapProvider.map);

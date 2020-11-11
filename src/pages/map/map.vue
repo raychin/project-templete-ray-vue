@@ -7,6 +7,7 @@
         <div class="layout-map">
             <map-layer ref="map" @click="handleBaseLayerClick($event)">
                 <operate-layer ref="operateLayer"></operate-layer>
+                <district-layer ref="districtLayer"></district-layer>
                 <build-layer ref="buildLayer" @click="handleBuildLayerClick($event)"></build-layer>
             </map-layer>
         </div>
@@ -15,6 +16,7 @@
 
 <script>
 import mapLayer from "./components/mapLayer.vue";
+import districtLayer from "./components/districtLayer.vue";
 import operateLayer from "./components/operateLayer.vue";
 import buildLayer from "./components/buildLayer.vue";
 import { Toast } from 'vant';
@@ -43,7 +45,7 @@ export default {
             hasMaskLayer: true
         };
     },
-    components: { mapLayer, operateLayer, buildLayer },
+    components: { mapLayer, districtLayer, operateLayer, buildLayer },
     created() {
     },
     methods: {
@@ -69,6 +71,7 @@ export default {
          */
         handleBaseLayerClick(geo) {
             const property = geo.properties;
+            console.log(property);
             /**
              * 增加采集状态判断
              * add by ray on 2020/03/13

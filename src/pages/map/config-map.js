@@ -13,9 +13,9 @@ blockUser = "nsapp";
 blockPassword = "geostar999";
 
 // 地图及相关服务环境，默认是深圳市环境，1为南山环境
-let mapEnv = 0;
+let mapEnv = 1;
 switch (mapEnv) {
-    case 0:
+    case 1:
         // 南山环境
         // 南山区底图
         mapBgUrl = "http://10.200.66.17:6080/arcgis/rest/services/NSKSJ/DTVEC_QS_ZQ_NS/MapServer";
