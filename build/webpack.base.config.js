@@ -2,7 +2,7 @@
  * @Author: ray ray.chin@163.com
  * @Date: 2020-08-24 16:22:19
  * @LastEditors: ray ray.chin@163.com
- * @LastEditTime: 2025-09-13 11:46:41
+ * @LastEditTime: 2025-09-13 21:33:24
  * @FilePath: /project-templete-ray-vue/build/webpack.base.config.js
  * @Description: webpack基础配置
  * 
@@ -66,7 +66,7 @@ module.exports = {
 				loaders: ['style-loader', 'css-loader', 'sass-loader'],
 			},
 			{
-				test: /\.(png|jpe?g|gif|svg|woff|eot|ttf)(\?.*)?$/,
+				test: /\.(png|jpg|jpe?g|gif|svg|woff|eot|ttf)(\?.*)?$/,
 				loader: 'file-loader',
 				query: {
 					// publicPath: 'cdn/', //图片打包引用到cdn
