@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-08 10:32:58
- * @LastEditTime: 2025-09-06 14:13:03
+ * @LastEditTime: 2025-09-13 20:51:57
  * @LastEditors: ray ray.chin@163.com
  * @Description: In User Settings Edit
  * @FilePath: /project-templete-ray-vue/src/pages/album/components/three-d.vue
@@ -59,7 +59,18 @@ export default {
     animation: inifiteAnimate 7s linear infinite;
     /* 设置3D模型 */
     transform-style: preserve-3d;
+    position: absolute;
+    left: 25%;
+}
 
+@media screen and (min-width: 1024px) {
+    .wrapper {
+        width: 200px;
+        height: 200px;
+        top: 10%;
+        left: 45%;
+    }
+    
 }
 
 /* 关键帧动画 */
@@ -75,7 +86,6 @@ export default {
 
 .min-box,
 .max-box {
-
     width: 100%;
     height: 100%;
     /* 设置3D模型 */
