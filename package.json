@@ -37,6 +37,7 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "@vant/touch-emulator": "^1.4.0",
     "axios": "^0.18.0",
     "blueimp-md5": "^2.10.0",
     "echarts": "^4.8.0",

@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-08 10:32:58
- * @LastEditTime: 2025-09-13 14:19:44
+ * @LastEditTime: 2025-09-13 21:20:43
  * @LastEditors: ray ray.chin@163.com
  * @Description: In User Settings Edit
  * @FilePath: /project-templete-ray-vue/src/pages/album/album.vue
@@ -37,6 +37,8 @@ import SlideHide from '../../components/slide-hide/index.vue'
 import ImageGallery from '../../components/image-gallery/index.vue'
 
 import { Howl, Howler } from 'howler';
+
+import '@vant/touch-emulator';
 export default {
     name: "Album",
     components: { ThreeD, MusicPlayer, SlideHide, ImageGallery },
@@ -93,23 +95,39 @@ export default {
         }
     },
     mounted () {
+    },
+    created () {
+        this.resize()
+        window.addEventListener('resize', this.resize)
         Howler.init({
             volume: 1,
             autoplay: true,
             loop: true,
             html5: true,
         });
-        this.playMusic();
+        document.body.addEventListener('click', this.mouseClick(), false)
+        document.body.addEventListener('touchstart', this.mouseClick(), false)
     },
-    created () {
-        document.body.addEventListener('mousedown', this.mouseClick(), false)
-    },
-    distroyed () {
+    destroyed () {
+        window.removeEventListener('resize', this.resize)
         this.removeMouseDown()
     },
     methods: {
+        resize () {
+            // 处理窗口大小变化的逻辑
+            if (window.innerWidth >= 1024) {
+                // 大屏幕设备的逻辑
+                console.log('大屏幕设备')
+            } else {
+                // 小屏幕设备的逻辑
+                console.log('小屏幕设备')
+            }
+        },
         playMusic () {
             if (this.sound) {
+                if (this.sound.playing()) {
+                    return
+                }
                 this.sound.play();
             } else {
                 this.sound = new Howl({
@@ -119,10 +137,12 @@ export default {
                 });
                 this.sound.once('load', () => {
                     this.sound.play();
+                    this.isOpen = true
                 });
             }
         },
         mouseClick () {
+            this.playMusic();
             // var player = document.getElementById("myMusic")
             // if (!player || player.playbackRate > 0) {
             //     return
@@ -141,7 +161,8 @@ export default {
             // })
         },
         removeMouseDown () {
-            document.body.removeEventListener('mousedown', this.mouseClick(), false)
+            document.body.removeEventListener('click', this.mouseClick(), false)
+            document.body.removeEventListener('touchstart', this.mouseClick(), false)
         },
         jump (paths) {
             /**
@@ -218,7 +239,8 @@ export default {
     box-sizing: border-box;
     font-size: 24px;
     line-height: 1.6;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    z-index: 99,
+    color: rgba(209, 44, 37, 1);
+    text-shadow: 2px 2px 4px rgba(209, 44, 37, 0.5);
+    z-index: 99;
 }
 </style>
