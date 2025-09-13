@@ -2,7 +2,7 @@
  * @Author: ray ray.chin@163.com
  * @Date: 2025-09-06 14:26:48
  * @LastEditors: ray ray.chin@163.com
- * @LastEditTime: 2025-09-13 14:10:35
+ * @LastEditTime: 2025-09-13 14:42:59
  * @FilePath: /project-templete-ray-vue/src/components/slide-hide/index.vue
  * @Description: 滑动组件
  * 
@@ -12,6 +12,7 @@
     <!-- 使用 transition 组件实现平滑动画 -->
     <transition name="slide-up">
         <div
+            id="parent"
             v-show="isVisible"
             class="fullscreen-overlay"
             @touchstart="onTouchStart"
@@ -23,6 +24,7 @@
             @mouseleave="onTouchEnd"
             @touchstart.stop
             @mousedown.stop
+            draggable="true"
         >
             <!-- 你的内容放在这里 -->
             <div class="content">
@@ -61,6 +63,9 @@ export default {
     created () {
     },
     mounted () {
+        document.getElementById('parent').addEventListener('dragstart', function(event) {
+            event.preventDefault();
+        });
         this.typeWriter();
     },
     methods: {
@@ -156,6 +161,7 @@ export default {
     align-items: center;
     touch-action: none;
     /* 防止默认触摸行为，避免干扰 */
+    user-select: none;
 }
 
 /* 向上滑出的过渡动画 */
@@ -174,6 +180,7 @@ export default {
     text-align: center;
     padding-top: 50%;
     width: 100%;
+    pointer-events: none;
 }
 
 .slide-hint {
