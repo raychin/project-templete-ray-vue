@@ -1,3 +1,12 @@
+/*
+ * @Author: ray ray.chin@163.com
+ * @Date: 2020-10-25 15:28:48
+ * @LastEditors: ray ray.chin@163.com
+ * @LastEditTime: 2022-08-17 14:31:02
+ * @FilePath: /project-templete-ray-vue/src/pages/map/config-map.js
+ * @Description: 地图服务相关
+ * Copyright (c) 2022 by ray ray.chin@163.com, All Rights Reserved.
+ */
 let mapBgUrl, blockUrl, blockUser, blockPassword,
     uniformUrl, uniformUser, uniformPassword;
 
@@ -18,13 +27,16 @@ switch (mapEnv) {
     case 1:
         // 南山环境
         // 南山区底图
-        mapBgUrl = "http://10.200.66.17:6080/arcgis/rest/services/NSKSJ/DTVEC_QS_ZQ_NS/MapServer";
+        // mapBgUrl = "http://10.200.66.17:6080/arcgis/rest/services/NSKSJ/DTVEC_QS_ZQ_NS/MapServer";
+        mapBgUrl = " https://rioweb.szns.gov.cn/zsdsjdy/mapServer/arcgis/rest/services/NSKSJ/DTVEC_QS_ZQ_NS/MapServer";
         // 深圳市南山区块数据
-        blockUrl = "http://10.200.66.39:9000";
+        // blockUrl = "http://10.200.66.39:9000";
+        blockUrl = "https://rioweb.szns.gov.cn/zsdsjdy/blockServer";
         blockUser = "nsapp";
         blockPassword = "geostar999";
         // 统一地址
-        uniformUrl = "http://10.200.66.41:8091";
+        // uniformUrl = "http://10.200.66.41:8091";
+        uniformUrl = "https://rioweb.szns.gov.cn/zsdsjdy/addressServer";
         uniformUser = 'nsltt';
         uniformPassword = 'geostar999';
         break;

@@ -1,3 +1,13 @@
+/*
+ * @Author: ray ray.chin@163.com
+ * @Date: 2020-08-24 16:22:19
+ * @LastEditors: ray ray.chin@163.com
+ * @LastEditTime: 2025-09-13 11:46:41
+ * @FilePath: /project-templete-ray-vue/build/webpack.base.config.js
+ * @Description: webpack基础配置
+ * 
+ * Copyright (c) 2025 by ray, All Rights Reserved.
+ */
 let path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
@@ -5,8 +15,12 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = {
-
-
+    
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, 'src/')
+        }
+    },
 	entry: {
 		index: "./src/main.js",
 		// vendor: ["vue", 'vuex', 'vue-router', 'axios']
@@ -58,7 +72,23 @@ module.exports = {
 					// publicPath: 'cdn/', //图片打包引用到cdn
 					name: "./assets/[name].[hash:8].[ext]"
 				}
-			}
+			},
+            {
+                test: /\.(mp3|wav|ogg|acc)$/i,
+                loader: 'file-loader',
+				query: {
+					// publicPath: 'cdn/', //图片打包引用到cdn
+					name: "./static/audio/[name].[hash:8].[ext]"
+				}
+                // use: {
+                //     loader: 'file-loader',
+                //     options: {
+                //         name: '[name].[ext]',
+                //         outputPath: 'audio/',
+                //         esModule: false,
+                //     }
+                // }
+            }
 		]
 	},
 	plugins: [

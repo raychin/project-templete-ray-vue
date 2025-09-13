@@ -1,3 +1,13 @@
+/*
+ * @Author: ray ray.chin@163.com
+ * @Date: 2020-08-24 16:22:19
+ * @LastEditors: ray ray.chin@163.com
+ * @LastEditTime: 2025-09-08 14:12:03
+ * @FilePath: /project-templete-ray-vue/src/main.js
+ * @Description: 
+ * 
+ * Copyright (c) 2025 by ray, All Rights Reserved.
+ */
 // 通用格式化css
 import './assets/common.css';
 // 移动端适配设置
@@ -44,8 +54,6 @@ Vue.prototype.$dialog = {
 	notify: Notify,
 	loading: Loading,
 };
-
-
 
 // 根据process.env.NODE_ENV判断执行环境
 // 'development'     本地测试环境       对应  npm run dev

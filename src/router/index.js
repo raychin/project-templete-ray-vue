@@ -1,3 +1,13 @@
+/*
+ * @Author: ray ray.chin@163.com
+ * @Date: 2020-08-24 18:54:17
+ * @LastEditors: ray ray.chin@163.com
+ * @LastEditTime: 2025-09-06 13:53:52
+ * @FilePath: /project-templete-ray-vue/src/router/index.js
+ * @Description: 
+ * 
+ * Copyright (c) 2025 by ray, All Rights Reserved.
+ */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 

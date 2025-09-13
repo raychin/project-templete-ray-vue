@@ -1,6 +1,12 @@
-/**
- * Created by xieyuanbin on 2018/8/21.
- * Email:yuanbin.xie@tempus.cn
+/*
+ * @Author: ray ray.chin@163.com
+ * @Date: 2020-08-24 16:22:19
+ * @LastEditors: ray ray.chin@163.com
+ * @LastEditTime: 2025-09-06 20:32:40
+ * @FilePath: /project-templete-ray-vue/build/webpack.dev.config.js
+ * @Description: 开发配置
+ * 
+ * Copyright (c) 2025 by ray, All Rights Reserved.
  */
 
 const Merge = require("webpack-merge");
@@ -50,7 +56,9 @@ module.exports = Merge(BaseConfig, {
 		contentBase: BUILD_PATH,
 		// quiet: true,
 		// open: true,
+        host: '0.0.0.0',
 		port: '9013',
+        disableHostCheck: true,
 		stats: "errors-only", //只显示错误统计信息 其他参数["minimal"，"normal"，"verbose"]
 		// host: internalIp.v4.sync(),
 		// host: '192.168.1.56',

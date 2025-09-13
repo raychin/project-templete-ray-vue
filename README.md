@@ -1,11 +1,12 @@
 <!-- Created by yaoyanhui on 2018/12/10. -->
 <!-- Email:yyh9465@163.com -->
 
-# 项目名称 v0.0.1(吉奥版)
+# 项目名称 v0.0.1
 
 #### 项目介绍
 
-vue2-wp4-ydui构建，吉奥专用(链动基座)
+vue2-wp4-ydui构建
+```node-v12.16.0
 
 #### 软件架构
 
