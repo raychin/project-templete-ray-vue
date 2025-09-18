@@ -2,7 +2,7 @@
  * @Author: ray ray.chin@163.com
  * @Date: 2020-08-24 16:22:19
  * @LastEditors: ray ray.chin@163.com
- * @LastEditTime: 2025-09-13 21:33:24
+ * @LastEditTime: 2025-09-15 17:01:21
  * @FilePath: /project-templete-ray-vue/build/webpack.base.config.js
  * @Description: webpack基础配置
  * 

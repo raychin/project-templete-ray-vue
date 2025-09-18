@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-08 10:32:58
- * @LastEditTime: 2025-09-13 21:20:43
+ * @LastEditTime: 2025-09-17 21:10:11
  * @LastEditors: ray ray.chin@163.com
  * @Description: In User Settings Edit
  * @FilePath: /project-templete-ray-vue/src/pages/album/album.vue
@@ -20,7 +20,7 @@
         <van-swipe class="my-swipe" indicator-color="white" vertical>
             <van-swipe-item v-for="(item, index) in pages" :key="`page${index}`">
                 <div class="swipe-container">
-                    <component v-if="item.is" :is="item.is"></component>
+                    <component v-if="item.is" :is="item.is" :directory="item.directory" :images="item.images"></component>
                     <div class="page-content">
                         {{ item.content }}
                     </div>
@@ -51,6 +51,9 @@ export default {
                 {
                     image: '',
                     content: '愿你目光澄澈，坚韧勇敢，去赏满天星辰，去追山川风月。',
+                    is: 'image-gallery',
+                    directory: '1',
+                    images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'],
                 },
                 {
                     image: '',
@@ -75,15 +78,23 @@ export default {
                 {
                     image: '',
                     content: '知识为你插上翅膀。愿你在书本里看见世界，在思考中收获智慧，好学亦好问。',
+                    is: 'image-gallery',
+                    directory: '7',
+                    images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg'],
                 },
                 {
                     image: '',
                     content: '开始有自己的小主意，这很棒！愿你在尝试中学会选择，在挑战中懂得坚持。',
+                    is: 'image-gallery',
+                    directory: '7',
+                    images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg'],
                 },
                 {
                     image: '',
                     content: '成长路上有晴亦有雨，愿你的笑容依旧灿烂，内心愈发坚强，朋友相伴左右。',
                     is: 'image-gallery',
+                    directory: '9',
+                    images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg'],
                 },
                 {
                     image: '',
@@ -183,7 +194,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .main {
-    background: linear-gradient(45deg, #fffbf0, #7fffd4, #161823);
+    background: linear-gradient(45deg, #161823, #7fffd4, #fffbf0);
     height: 100%;
     position: relative;
 }
@@ -233,13 +244,14 @@ export default {
 }
 .page-content {
     position: absolute;
-    bottom: 10vh;
+    bottom: 14vh;
     width: 100%;
     padding: 0 5vw;
     box-sizing: border-box;
-    font-size: 24px;
+    font-size: 26px;
     line-height: 1.6;
-    color: rgba(209, 44, 37, 1);
+    font-weight: 600;
+    color: #574266;
     text-shadow: 2px 2px 4px rgba(209, 44, 37, 0.5);
     z-index: 99;
 }
