@@ -105,30 +105,14 @@ const store = new Vuex.Store({
 
 >静态资源 (/src/static/...)
 
-+ /app.json     上传链动必须（scheme 唯一项目名，startPageUrl首页，version版本）
-
-+ /bingo_cordova.min.js    通过cordova.js获取相机，相册，定位等功能
-
-+ /GeoGlobeJS.min.js    GeoGlobe地图
++ /GeoGlobeJS.min.js    地图
 
 + /mapbox-gl.js    mapbox地图
-
-+ /moa.js    获取联动基座登录信息，定位信息等
-
-+ /zepto.js   自行百度
 
 
 >页面路径(/page)
 
-+ /home 	商户主体首页
-
 + /map  	地图页面
-
-
-
-
-
-
 
 
 

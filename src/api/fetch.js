@@ -13,7 +13,7 @@ instance.interceptors.request.use(
 	e => {
 		e.params = e.params || {};
 		e.headers = e.headers || {};
-		if (e.url.indexOf('geosocial-sso-manage') > -1 && e.data.token) {
+		if (e.url.indexOf('ray-manage') > -1 && e.data.token) {
             e.headers.accessToken = e.data.token;
         }
 		// set 默认值

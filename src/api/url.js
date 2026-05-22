@@ -15,7 +15,7 @@ geoSocialPassword,
 isAutoLogin = false;
 
 // 综治平台登录及相关数据字典接口
-ssoUrl = "https://rioweb.szns.gov.cn/zsdsjdy/zzapi/geosocial-sso-manage/";
+ssoUrl = "https://raychin.github.io/ray-manage/";
 geoSocialId = "qinlei01";
 geoSocialPassword = "Aa@888888";
 isAutoLogin = true;
