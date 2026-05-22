@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-08 10:32:58
- * @LastEditTime: 2025-09-13 20:51:57
+ * @LastEditTime: 2025-09-18 21:09:57
  * @LastEditors: ray ray.chin@163.com
  * @Description: In User Settings Edit
  * @FilePath: /project-templete-ray-vue/src/pages/album/components/three-d.vue
@@ -110,32 +110,38 @@ export default {
 }
 
 .item1 {
-    background-image: url(../static/imgs/1.jpg);
+    /* background-image: url(../static/imgs/1.jpg); */
+    background-image: url(../../../static/album/9/2.jpg);
     transform: translateZ(100px);
 }
 
 .item2 {
-    background-image: url(../static/imgs/2.jpg);
+    /* background-image: url(../static/imgs/2.jpg); */
+    background-image: url(../../../static/album/8/7.jpg);
     transform: rotateY(90deg) translateZ(100px);
 }
 
 .item3 {
-    background-image: url(../static/imgs/3.jpg);
+    /* background-image: url(../static/imgs/3.jpg); */
+    background-image: url(../../../static/album/9/1.jpg);
     transform: rotateY(-90deg) translateZ(100px);
 }
 
 .item4 {
-    background-image: url(../static/imgs/4.jpg);
+    /* background-image: url(../static/imgs/4.jpg); */
+    background-image: url(../../../static/album/9/5.jpg);
     transform: rotateY(-180deg) translateZ(100px);
 }
 
 .item5 {
-    background-image: url(../static/imgs/5.jpg);
+    /* background-image: url(../static/imgs/5.jpg); */
+    background-image: url(../../../static/album/1/3.jpg);
     transform: rotateX(90deg) translateZ(100px);
 }
 
 .item6 {
-    background-image: url(../static/imgs/6.jpg);
+    /* background-image: url(../static/imgs/6.jpg); */
+    background-image: url(../../../static/album/7/2.jpg);
     transform: rotateX(-90deg) translateZ(100px);
 }
 

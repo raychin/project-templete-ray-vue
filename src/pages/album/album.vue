@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-08 10:32:58
- * @LastEditTime: 2025-09-17 21:10:11
+ * @LastEditTime: 2025-09-19 20:56:01
  * @LastEditors: ray ray.chin@163.com
  * @Description: In User Settings Edit
  * @FilePath: /project-templete-ray-vue/src/pages/album/album.vue
@@ -53,11 +53,14 @@ export default {
                     content: '愿你目光澄澈，坚韧勇敢，去赏满天星辰，去追山川风月。',
                     is: 'image-gallery',
                     directory: '1',
-                    images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'],
+                    images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg'],
                 },
                 {
                     image: '',
                     content: '咿呀学语，蹒跚学步，你的每一次尝试都让我们惊喜。继续勇敢探索吧。',
+                    is: 'image-gallery',
+                    directory: '2',
+                    images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg'],
                 },
                 {
                     image: '',
@@ -74,6 +77,9 @@ export default {
                 {
                     image: '',
                     content: '成为小学生啦！愿你享受学习的乐趣，也珍惜课间的欢笑，健康快乐每一天。',
+                    is: 'image-gallery',
+                    directory: '6',
+                    images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg'],
                 },
                 {
                     image: '',
@@ -86,7 +92,7 @@ export default {
                     image: '',
                     content: '开始有自己的小主意，这很棒！愿你在尝试中学会选择，在挑战中懂得坚持。',
                     is: 'image-gallery',
-                    directory: '7',
+                    directory: '8',
                     images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg'],
                 },
                 {
@@ -194,7 +200,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .main {
-    background: linear-gradient(45deg, #161823, #7fffd4, #fffbf0);
+    background: linear-gradient(45deg, #fffbf0, #7fffd4, #161823);
     height: 100%;
     position: relative;
 }
@@ -225,6 +231,22 @@ export default {
     width: 100%;
 }
 
+/deep/.van-swipe__indicator {
+    width: 6px;
+    height: 6px;
+    background-color: #f05654;
+    border-radius: 100%;
+    opacity: 0.3;
+    -webkit-transition: opacity 0.2s, background-color 0.2s;
+    transition: opacity 0.2s, background-color 0.2s;
+}
+/deep/.van-swipe__indicator--active {
+    background-color: #d20a10 !important;
+    opacity: 1;
+    height: 24px;
+    border-radius: 10px;
+}
+
 .my-swipe {
     box-sizing: border-box;
 }
@@ -251,7 +273,7 @@ export default {
     font-size: 26px;
     line-height: 1.6;
     font-weight: 600;
-    color: #574266;
+    color: #ff5800;
     text-shadow: 2px 2px 4px rgba(209, 44, 37, 0.5);
     z-index: 99;
 }
